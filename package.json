@@ -1,6 +1,6 @@
 {
-  "name": "react-native-dev-tools",
-  "version": "0.1",
+  "name": "@alexkang/react-native-dev-tools",
+  "version": "0.1.0",
   "description": "React & React native dev tools.",
   "main": "lib/index.js",
   "module": "lib/index.js",

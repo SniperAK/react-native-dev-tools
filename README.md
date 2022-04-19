@@ -1,4 +1,4 @@
-# react-devtools
+# react-native-dev-tools
 React & React native devtools. In your own services.
 
 ![platforms](https://img.shields.io/badge/platforms-Android%20%7C%20iOS%20%7C%20web-brightgreen.svg?style=flat-square&colorB=191A17)
