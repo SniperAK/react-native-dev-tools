@@ -4,7 +4,7 @@ interface IAxiosRequestConfig extends AxiosRequestConfig {
   uid: string;
 }
 
-interface IAxiosResponse extends AxiosResponse {
+export interface IAxiosResponse extends AxiosResponse {
   config: IAxiosRequestConfig;
 }
 
@@ -23,6 +23,7 @@ interface IAxiosLog {
 interface IAxiosLogContext {
   logs: Array<IAxiosLog>;
   clearLogList: () => void;
+  linkResponse: (response: IAxiosResponse)=> void;
 }
 
 interface AxiosContenxtProviderProps {

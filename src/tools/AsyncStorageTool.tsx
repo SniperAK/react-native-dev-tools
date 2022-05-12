@@ -6,11 +6,13 @@ import ResizeableView from '../components/ResizeableView';
 import { ToolContext } from '../context/toolManager/ToolContext';
 import { ScrollView } from 'react-native-gesture-handler';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-const DevTreeView = require('react-native-dev-treeview').default;
+
 import { generateUnique } from '../utils/utils';
 import { useASStoredState } from '../utils/ASStore';
 import ClearIconView from '../components/ClearIconView';
 import { KeyValuePair } from '@react-native-async-storage/async-storage/lib/typescript/types';
+import DevTreeView from 'react-native-dev-treeview';
+import Clipboard from "@react-native-clipboard/clipboard";
 
 const styles = StyleSheet.create({
   container: {
@@ -87,6 +89,7 @@ const AsyncStorageToolView = ({ fontSize }: { fontSize: number }) => {
           fontSize={fontSize}
           autoExtendRoot
           data={data}
+          onCopy={Clipboard.setString}
         />
       </ScrollView>
     </ScrollView>

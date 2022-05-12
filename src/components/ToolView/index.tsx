@@ -5,7 +5,6 @@ import {
   Dimensions,
 } from 'react-native';
 
-import { SafeAreaProvider } from 'react-native-safe-area-context';
 import ToolButton from './ToolHandle';
 import ToolHandle from './ToolHandle';
 import ToolContent from './ToolContent';
@@ -99,18 +98,15 @@ const ToolView = ({ extensions = [], isOpen, onChangeOpen }: IToolViewProps) => 
           },
           // isRight ? styles.containerRight : styles.containerLeft,
         ]}>
-
-        <SafeAreaProvider style={{ flex: 1 }}>
-          <ToolContent
-            backgroundColor={backgroundColor}
-            setPosition={setPosition}
-            position={position}
-            toggleTool={() => {
-              handleTouch();
-            }}
-            extensions={extensions}
-          />
-        </SafeAreaProvider>
+        <ToolContent
+          backgroundColor={backgroundColor}
+          setPosition={setPosition}
+          position={position}
+          toggleTool={() => {
+            handleTouch();
+          }}
+          extensions={extensions}
+        />
       </Animated.View>
     </>
   )

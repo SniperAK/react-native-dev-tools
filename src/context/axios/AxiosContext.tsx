@@ -13,6 +13,7 @@ import { AxiosRequestConfig, AxiosResponse } from 'axios';
 const defaultAxiosContext: IAxiosLogContext = {
   logs: [],
   clearLogList: () => { },
+  linkResponse: () => { },
 };
 
 const AxiosContext = createContext(defaultAxiosContext);
@@ -95,7 +96,7 @@ const AxiosContextProvider = ({ children, axiosInstances }: AxiosContenxtProvide
 
   return (
     <AxiosContext.Provider
-      value={{ logs, clearLogList }}>
+      value={{ logs, clearLogList, linkResponse }}>
       {children}
     </AxiosContext.Provider>
   );

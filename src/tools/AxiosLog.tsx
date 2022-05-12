@@ -9,8 +9,9 @@ import { ToolContext } from '../context/toolManager/ToolContext';
 import { ScrollView } from 'react-native-gesture-handler';
 import { useASStoredState } from '../utils/ASStore';
 import ClearIconView from '../components/ClearIconView';
+import DevTreeView from 'react-native-dev-treeview';
+import Clipboard from "@react-native-clipboard/clipboard";
 const Scenes = require('react-native-scenes').default;
-const DevTreeView = require('react-native-dev-treeview').default;
 
 const styles = StyleSheet.create({
   container: {
@@ -70,15 +71,15 @@ const AxiosLogDetail = ({ log, ...etc }: { log: IAxiosLog, pop: Function }) => {
       <ScrollView style={{ flex: 1 }}>
         <Text> - Request</Text>
         <ScrollView style={{ width: '100%', backgroundColor: '#333' }} horizontal >
-          <DevTreeView autoExtendRoot={true} fontSize={fontSize} data={{ ...log.config }} />
+          <DevTreeView autoExtendRoot={true} fontSize={fontSize} data={{ ...log.config }} onCopy={Clipboard.setString} />
         </ScrollView>
         <Text> - Response</Text>
         <ScrollView style={{ width: '100%', backgroundColor: '#333' }} horizontal >
-          <DevTreeView autoExtendRoot={true} fontSize={fontSize} data={{ ...log.response }} />
+          <DevTreeView autoExtendRoot={true} fontSize={fontSize} data={{ ...log.response }} onCopy={Clipboard.setString}/>
         </ScrollView>
         <Text> - All</Text>
         <ScrollView style={{ width: '100%', backgroundColor: '#333' }} horizontal >
-          <DevTreeView autoExtendRoot={true} fontSize={fontSize} data={{ ...log }} />
+          <DevTreeView autoExtendRoot={true} fontSize={fontSize} data={{ ...log }} onCopy={Clipboard.setString}/>
         </ScrollView>
       </ScrollView>
     </View>

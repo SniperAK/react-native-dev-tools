@@ -7,6 +7,7 @@ import DevTools from './DevToolRoot';
 import { setEnableDevTool, addDevToolEnableListener } from './context/devToolEmitter/devToolEmitter';
 import { setNavigationContainer } from './context/toolManager/ToolContext';
 import Emitter from './utils/Emitter';
+import DevTreeView from 'react-native-dev-treeview';
 
 // ui component
 import Button from './components/Button';
@@ -26,6 +27,7 @@ export {
   
   Button,
   ResizeableView,
-  TransformerButton
+  TransformerButton,
+  DevTreeView,
 };
 export default DevTools;

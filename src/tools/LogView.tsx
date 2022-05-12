@@ -5,7 +5,8 @@ import { ToolContext } from '../context/toolManager/ToolContext';
 import ResizeableView from '../components/ResizeableView';
 import Button from '../components/Button';
 import { useASStoredState } from '../utils/ASStore';
-const DevTreeView = require('react-native-dev-treeview').default;
+import DevTreeView from 'react-native-dev-treeview';
+import Clipboard from "@react-native-clipboard/clipboard";
 
 const styles = StyleSheet.create({
   headerExtra: {
@@ -59,7 +60,7 @@ const LogItem = ({ log, fontSize = 14 }: { log: ILog, fontSize: number }) => {
             && typeof content != 'number' && typeof content == 'object'
           ) return (
             <View key={`${index}`} style={{}}>
-              <DevTreeView data={content} style={{ flex: 1, backgroundColor: '#33333399' }} fontSize={fontSize} />
+              <DevTreeView data={content} style={{ flex: 1, backgroundColor: '#33333399' }} fontSize={fontSize} onCopy={Clipboard.setString} />
             </View>
           )
           return (
