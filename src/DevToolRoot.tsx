@@ -13,7 +13,7 @@ import LogView from './tools/LogView';
 const DevTools = React.forwardRef(({
   axiosInstances = [],
   enabled: initialEnabled = __DEV__,
-  extensions = []
+  extensions = [],
 }: IDevToolsProps, ref: any) => {
   // handle emitter;
   React.useEffect(() => {

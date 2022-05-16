@@ -30,27 +30,26 @@ const AxiosContextProvider = ({ children, axiosInstances }: AxiosContenxtProvide
   
   const createLog = (config: IAxiosRequestConfig) => {
     config.uid = generateUnique();
-    console.log('devTools::request', config.uid);
+    
     const log: IAxiosLog = {
       uid: config.uid,
       time: Date.now(),
       config,
-      elapse: -1,
       method: config?.method,
     };
+    console.log(`devTools::axios::request[${config.uid}] ${log.config.url}`);
     __logs.unshift(log);
     setLogs([...__logs]);
   };
 
   const linkResponse = (response: IAxiosResponse) => {
-    console.log('',);
     const log = __logs.find((log) => log.uid === response?.config.uid);
-    console.log('devTools::response', log?.uid);
     if (log) {
       log.isError = false;
       log.elapse = Date.now() - log.time;
       log.status = response.status;
       log.response = response;
+      console.log(`devTools::axios::response[${log?.uid}] ${log.status} ${log.elapse}ms `);
       setLogs([...__logs]);
     }
   }

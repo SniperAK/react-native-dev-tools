@@ -122,9 +122,9 @@ const AxiosLogItem = ({ log, push }: { log: IAxiosLog, push: Function }) => {
       <View style={{ justifyContent: 'center' }}>
         <Text style={[styles.log, { fontSize }]} selectable={true}>
           {log.config.url}
-          <Text style={[styles.elapse, { fontSize }, log.elapse > 1000 && { color: '#c00' }]} selectable={true}>
+          {!!log.elapse && <Text style={[styles.elapse, { fontSize }, log.elapse > 1000 && { color: '#c00' }]} selectable={true}>
             {' '}{log.elapse}ms
-          </Text>
+          </Text>}
         </Text>
         <Text style={[styles.query, { fontSize }]} selectable={true}>
           {JSON.stringify(log?.config?.params)}
