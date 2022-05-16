@@ -43,7 +43,7 @@ const AxiosContextProvider = ({ children, axiosInstances }: AxiosContenxtProvide
   };
 
   const linkResponse = (response: IAxiosResponse) => {
-    const log = __logs.find((log) => log.uid === response?.config.uid);
+    const log = __logs.find((log) => log.uid === response?.config?.uid);
     if (log) {
       log.isError = false;
       log.elapse = Date.now() - log.time;
